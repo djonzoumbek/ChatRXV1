@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="client.ClientView">
+  <grid id="27dc6" binding="clientPannel" layout-manager="CardLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="18" y="20" width="524" height="616"/>
+    </constraints>
+    <properties>
+      <opaque value="true"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="107ba" binding="connecPannel" layout-manager="GridLayoutManager" row-count="9" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <card name="home"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="22627" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value="Username"/>
+            </properties>
+          </component>
+          <vspacer id="ec4dc">
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="254b2" class="javax.swing.JTextField" binding="usernameField">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font size="16"/>
+            </properties>
+          </component>
+          <component id="a9853" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value="Server IP"/>
+            </properties>
+          </component>
+          <component id="b14ad" class="javax.swing.JTextField" binding="serverAddressField">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font size="16"/>
+              <foreground color="-14340064"/>
+              <text value="Default Localhost"/>
+            </properties>
+          </component>
+          <component id="9357e" class="javax.swing.JButton" binding="connectButton" default-binding="true">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="18" style="1"/>
+              <text value="Connect"/>
+            </properties>
+          </component>
+          <vspacer id="aed6c">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="4fd8b" class="javax.swing.JLabel" binding="errormessage">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <grid id="2d7f9" class="javax.swing.JMenuBar" binding="menuBar" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="90cd6" class="javax.swing.JMenu" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Main"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="3c39f" class="javax.swing.JMenuItem">
+                    <constraints/>
+                    <properties>
+                      <text value="Home"/>
+                    </properties>
+                  </component>
+                  <component id="a1f5" class="javax.swing.JMenuItem">
+                    <constraints/>
+                    <properties>
+                      <text value="Save"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <hspacer id="d3a9b">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <grid id="46ac9" class="javax.swing.JMenu" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Setting"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="7e5fb" class="javax.swing.JMenuItem">
+                    <constraints/>
+                    <properties>
+                      <text value="Sound"/>
+                    </properties>
+                  </component>
+                  <component id="e48fc" class="javax.swing.JMenuItem">
+                    <constraints/>
+                    <properties>
+                      <text value="Timestamp"/>
+                    </properties>
+                  </component>
+                  <component id="8af98" class="javax.swing.JMenuItem">
+                    <constraints/>
+                    <properties>
+                      <text value="color"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="36a3a" class="javax.swing.JMenu" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Help"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="f78d3" binding="chatPannel" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="10" bottom="10" right="10"/>
+        <constraints>
+          <card name="chat"/>
+        </constraints>
+        <properties>
+          <preferredSize width="800" height="400"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="a3a3e">
+            <constraints>
+              <grid row="1" column="0" row-span="2" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="f6398" class="javax.swing.JTextArea" binding="chatarea">
+                <constraints/>
+                <properties>
+                  <editable value="false"/>
+                  <font size="16"/>
+                  <lineWrap value="true"/>
+                  <margin top="0" left="5" bottom="0" right="0"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <component id="c703d" class="javax.swing.JTextArea" binding="onlineUsersarea">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <font size="26" style="1"/>
+              <lineWrap value="true"/>
+              <margin top="0" left="5" bottom="0" right="0"/>
+            </properties>
+          </component>
+          <component id="9f9c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value="Chat"/>
+            </properties>
+          </component>
+          <component id="cc09c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value="Online User"/>
+            </properties>
+          </component>
+          <component id="cfe1d" class="javax.swing.JTextField" binding="messageField">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="af49" class="javax.swing.JButton" binding="sendButton" default-binding="true">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value="Send"/>
+            </properties>
+          </component>
+          <component id="6cd5f" class="javax.swing.JButton" binding="backButton" default-binding="true">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value="Back"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
