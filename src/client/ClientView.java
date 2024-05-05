@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class ClientView {
     private JPanel clientPannel;
-    private JPanel connecPannel;
+    private JPanel usernamePannel;
     private JPanel chatPannel;
     private JTextField usernameField;
     private JButton connectButton;
@@ -17,6 +17,7 @@ public class ClientView {
     private JButton backButton;
     private JMenuBar menuBar;
     private JTextField jobTextField;
+    private JTextField Username;
 
 
     private ClientModel clientModel;
