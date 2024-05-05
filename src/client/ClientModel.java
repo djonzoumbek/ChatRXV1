@@ -13,19 +13,20 @@ public class ClientModel {
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
     private Socket clientsocket;
-    private String username;
+    private String nomComplet;
     private String job;
 
     private ClientView clientView;
 
-    public void connect(String username, String serverAddress, String job) {
+    public void connect(String username, String nomComplet, String serverAddress, String job) {
         try {
             clientsocket = new Socket(serverAddress, 4321);
-            this.username = username;
+            this.nomComplet = nomComplet;
             this.job = job;
             objectOutputStream = new ObjectOutputStream(clientsocket.getOutputStream());
             objectInputStream = new ObjectInputStream(clientsocket.getInputStream());
             objectOutputStream.writeObject(username);
+            objectOutputStream.writeObject(nomComplet);
             objectOutputStream.writeObject(job);
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
@@ -35,7 +36,7 @@ public class ClientModel {
 
     public void sendMessage(String message) throws IOException {
         if (objectOutputStream != null) {
-            objectOutputStream.writeObject(username + " de "+ job + ": " + message);
+            objectOutputStream.writeObject(nomComplet + " de "+ job + ": " + message);
             objectOutputStream.flush(); // Assure l'envoi immédiat du message
         } else {
             throw new IOException("ObjectOutputStream is not initialized.");

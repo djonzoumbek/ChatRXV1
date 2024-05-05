@@ -17,6 +17,7 @@ public class ClientView {
     private JButton backButton;
     private JMenuBar menuBar;
     private JTextField jobTextField;
+    private JTextField usernameField;
 
 
     private ClientModel clientModel;
@@ -33,6 +34,9 @@ public class ClientView {
 
     public String getnomComplet(){
         return nomCompletField.getText();
+    }
+    public String getUsernameField(){
+        return usernameField.getText();
     }
 
     public String getJobTextField(){

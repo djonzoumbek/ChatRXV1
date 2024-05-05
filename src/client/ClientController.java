@@ -20,13 +20,14 @@ public class ClientController extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nomComplet = clientView.getnomComplet();
+                String username = clientView.getUsernameField();
                 String serverIPAddress = "localhost";
                 String job = clientView.getJobTextField();
                 if (nomComplet.isBlank()){
                 //JOptionPane.showMessageDialog(null, "Please enter a nomComplet");
                     clientView.setErrorMessage("Svp entrez votre nom");
                 }else {
-                    clientModel.connect(nomComplet, serverIPAddress, job);
+                    clientModel.connect(username, nomComplet, serverIPAddress, job);
                     clientModel.listenForMessage();
                     //clientView.showHome();
                     //System.out.println("Change to chatPannel");
