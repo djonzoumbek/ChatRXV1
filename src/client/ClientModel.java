@@ -14,20 +14,28 @@ public class ClientModel {
     private ObjectInputStream objectInputStream;
     private Socket clientsocket;
     private String username;
+    private String job;
 
     private ClientView clientView;
 
-    public void connect(String username, String serverAddress) throws IOException {
-        clientsocket = new Socket(serverAddress, 4321);
-        this.username = username;
-        objectOutputStream = new ObjectOutputStream(clientsocket.getOutputStream());
-        objectInputStream = new ObjectInputStream(clientsocket.getInputStream());
-        objectOutputStream.writeObject(username);
+    public void connect(String username, String serverAddress, String job) {
+        try {
+            clientsocket = new Socket(serverAddress, 4321);
+            this.username = username;
+            this.job = job;
+            objectOutputStream = new ObjectOutputStream(clientsocket.getOutputStream());
+            objectInputStream = new ObjectInputStream(clientsocket.getInputStream());
+            objectOutputStream.writeObject(username);
+            objectOutputStream.writeObject(job);
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
     }
 
     public void sendMessage(String message) throws IOException {
         if (objectOutputStream != null) {
-            objectOutputStream.writeObject(username + ": " + message);
+            objectOutputStream.writeObject(username + " de "+ job + ": " + message);
             objectOutputStream.flush(); // Assure l'envoi immédiat du message
         } else {
             throw new IOException("ObjectOutputStream is not initialized.");
@@ -77,15 +85,18 @@ public class ClientModel {
         try {
             if (clientsocket.isConnected()){
                 clientsocket.close();
+                clientView.updateUserList();
             }
             if (objectOutputStream != null){
                 objectOutputStream.close();
+                clientView.updateUserList();
             }
             if (objectInputStream != null){
                 objectInputStream.close();
+                clientView.updateUserList();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 

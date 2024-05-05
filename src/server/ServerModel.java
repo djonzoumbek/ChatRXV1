@@ -30,8 +30,8 @@ public class ServerModel {
 
     }
 
-    public void addOlineUser(String username) {
-        onlineUsers.add(username+"\n");
+    public void addOlineUser(String username, String job) {
+        onlineUsers.add(username + "|" + job +"\n");
         serverView.updateUsers();
     }
     public void removeUser(String username) {

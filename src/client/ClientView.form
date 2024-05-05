@@ -19,15 +19,6 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="22627" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Username"/>
-            </properties>
-          </component>
           <vspacer id="ec4dc">
             <constraints>
               <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
@@ -43,41 +34,6 @@
               <font size="16"/>
             </properties>
           </component>
-          <component id="a9853" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="16" style="1"/>
-              <text value="Server IP"/>
-            </properties>
-          </component>
-          <component id="b14ad" class="javax.swing.JTextField" binding="serverAddressField">
-            <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="16"/>
-              <foreground color="-14340064"/>
-              <text value="Default Localhost"/>
-            </properties>
-          </component>
-          <component id="9357e" class="javax.swing.JButton" binding="connectButton" default-binding="true">
-            <constraints>
-              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="18" style="1"/>
-              <text value="Connect"/>
-            </properties>
-          </component>
-          <vspacer id="aed6c">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </vspacer>
           <component id="4fd8b" class="javax.swing.JLabel" binding="errormessage">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -102,6 +58,46 @@
               </hspacer>
             </children>
           </grid>
+          <component id="22627" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value="Nom complet"/>
+            </properties>
+          </component>
+          <component id="9357e" class="javax.swing.JButton" binding="connectButton" default-binding="true">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="18" style="1"/>
+              <text value="Connect"/>
+            </properties>
+          </component>
+          <vspacer id="8a304">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="2244c" class="javax.swing.JTextField" binding="jobTextField">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="5a431" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value="Job"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <grid id="f78d3" binding="chatPannel" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -140,7 +136,7 @@
             </constraints>
             <properties>
               <editable value="false"/>
-              <font size="26" style="1"/>
+              <font size="14" style="1"/>
               <lineWrap value="true"/>
               <margin top="0" left="5" bottom="0" right="0"/>
             </properties>

@@ -20,23 +20,18 @@ public class ClientController extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String username = clientView.getUsername();
-                String serverIPAddress = clientView.getServerAddress();
+                String serverIPAddress = "localhost";
+                String job = clientView.getJobTextField();
                 if (username.isBlank()){
                 //JOptionPane.showMessageDialog(null, "Please enter a username");
-                    clientView.setErrorMessage("Please provide a valid username");
+                    clientView.setErrorMessage("Svp entrez votre nom");
                 }else {
-                    try {
-                        clientModel.connect(username, serverIPAddress);
-                        clientModel.listenForMessage();
-                        //clientView.showHome();
-                        System.out.println("Change to chatPannel");
-                        clientView.showChat();
-                        setTitle("Client - " + username);
-                    } catch (IOException ex) {
-                        clientView.setErrorMessage("Failed to connect to server");
-                        ex.printStackTrace();
-
-                    }
+                    clientModel.connect(username, serverIPAddress, job);
+                    clientModel.listenForMessage();
+                    //clientView.showHome();
+                    //System.out.println("Change to chatPannel");
+                    clientView.showChat();
+                    setTitle("Client - " + username);
 
                 }
 
@@ -47,7 +42,8 @@ public class ClientController extends JFrame {
         clientView.getBackButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Back to chatPannel");
+//                System.out.println("Back to chatPannel");
+                clientModel.getOnlineUsers();
                 clientModel.disconnect();
                 clientView.showHome();
             }
@@ -85,24 +81,24 @@ public class ClientController extends JFrame {
         });
 
 
-        clientView.getServerAddressField().addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                if(clientView.getServerAddressField().getText().equals("Default: Localhost")) {
-                    clientView.getServerAddressField().setText("");
-                    clientView.getServerAddressField().setForeground(Color.black);
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (clientView.getServerAddressField().getText().isBlank()) {
-                    clientView.getServerAddressField().setForeground(Color.gray);
-                    clientView.getServerAddressField().setText("Default: Localhost");
-
-                }
-            }
-        });
+//        clientView.getServerAddressField().addFocusListener(new FocusListener() {
+//            @Override
+//            public void focusGained(FocusEvent e) {
+//                if(clientView.getServerAddressField().getText().equals("Default: Localhost")) {
+//                    clientView.getServerAddressField().setText("");
+//                    clientView.getServerAddressField().setForeground(Color.black);
+//                }
+//            }
+//
+//            @Override
+//            public void focusLost(FocusEvent e) {
+//                if (clientView.getServerAddressField().getText().isBlank()) {
+//                    clientView.getServerAddressField().setForeground(Color.gray);
+//                    clientView.getServerAddressField().setText("Default: Localhost");
+//
+//                }
+//            }
+//        });
 
 
         add(clientView.getClientPannel());

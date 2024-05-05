@@ -8,7 +8,6 @@ public class ClientView {
     private JPanel connecPannel;
     private JPanel chatPannel;
     private JTextField usernameField;
-    private JTextField serverAddressField;
     private JButton connectButton;
     private JLabel errormessage;
     private JTextArea chatarea;
@@ -17,6 +16,7 @@ public class ClientView {
     private JButton sendButton;
     private JButton backButton;
     private JMenuBar menuBar;
+    private JTextField jobTextField;
 
 
     private ClientModel clientModel;
@@ -35,13 +35,10 @@ public class ClientView {
         return usernameField.getText();
     }
 
-    public String getServerAddress(){
-        if (serverAddressField.getText().isBlank() || sendButton.getText().equals("Default: Localhost")){
-            return "localhost";
-        }else {
-            return serverAddressField.getText();
-        }
+    public String getJobTextField(){
+        return jobTextField.getText();
     }
+
 
     public JButton getConnectButton() {
         return connectButton;
@@ -63,9 +60,6 @@ public class ClientView {
         return sendButton;
     }
 
-    public JTextField getServerAddressField() {
-        return serverAddressField;
-    }
 
     public JTextField getMessageField(){
         return messageField;

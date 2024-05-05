@@ -11,6 +11,7 @@ public class Conversation implements Runnable{
     private ObjectInputStream objectInputStream;
     private Socket clientSocket;
     private String username;
+    private String job;
     private static ArrayList<Conversation> conversations = new ArrayList<>();
     private ServerModel serverModel;
 
@@ -22,11 +23,12 @@ public class Conversation implements Runnable{
         this.objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
         this.objectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
         this.username = (String) objectInputStream.readObject();
+        this.job = (String) objectInputStream.readObject();
 
-        serverModel.addOlineUser(username);
-        serverModel.addMessage("SERVER : "+ username+ " has connect to the server");
+        serverModel.addOlineUser(username, job);
+        serverModel.addMessage("SERVER : "+ username +" de " + job +"est connecté au serveur ");
 
-        broadCastMessage("SERVER : "+ username+ " has connect to the server");
+        broadCastMessage("SERVER : "+ username +"de"+ job +" est connecté au serveur ");
         broadCastUsers(serverModel.getOnlineUsers());
     }
 
