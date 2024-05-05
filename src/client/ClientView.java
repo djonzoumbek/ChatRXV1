@@ -7,7 +7,7 @@ public class ClientView {
     private JPanel clientPannel;
     private JPanel connecPannel;
     private JPanel chatPannel;
-    private JTextField usernameField;
+    private JTextField nomCompletField;
     private JButton connectButton;
     private JLabel errormessage;
     private JTextArea chatarea;
@@ -31,8 +31,8 @@ public class ClientView {
         return clientPannel;
     }
 
-    public String getUsername(){
-        return usernameField.getText();
+    public String getnomComplet(){
+        return nomCompletField.getText();
     }
 
     public String getJobTextField(){
