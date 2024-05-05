@@ -18,10 +18,16 @@ public class ServerModel {
 
         while(true) {
             Socket clientConnection = serverSocket.accept();
-            ClientHandler clientHandler = new ClientHandler(clientConnection, this);
-            Thread thread = new Thread(clientHandler);
+            Conversation conversation = new Conversation(clientConnection, this);
+            Thread thread = new Thread(conversation);
             thread.start();
         }
+    }
+
+    public void stopServer() throws IOException {
+        serverSocket.close();
+        addMessage("Server stop");
+
     }
 
     public void addOlineUser(String username) {

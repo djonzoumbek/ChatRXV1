@@ -40,7 +40,11 @@ public class ServerController extends JFrame {
         serverView.getStopServerButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Stop server ...TODO");
+                try {
+                    stopServer();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -66,6 +70,10 @@ public class ServerController extends JFrame {
                 }
             }
         }).start();
+    }
+
+    public void stopServer() throws IOException {
+        serverModel.stopServer();
     }
 
 

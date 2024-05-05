@@ -6,33 +6,33 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class ClientHandler implements Runnable{
+public class Conversation implements Runnable{
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
     private Socket clientSocket;
     private String username;
-    private static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
+    private static ArrayList<Conversation> conversations = new ArrayList<>();
     private ServerModel serverModel;
 
-    public ClientHandler(Socket clientConnection, ServerModel serverModel) throws IOException, ClassNotFoundException {
+    public Conversation(Socket clientConnection, ServerModel serverModel) throws IOException, ClassNotFoundException {
         this.clientSocket = clientConnection;
         this.serverModel = serverModel;
-        clientHandlers.add(this);
+        conversations.add(this);
 
         this.objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
         this.objectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
         this.username = (String) objectInputStream.readObject();
 
         serverModel.addOlineUser(username);
-        serverModel.addMessage("SERVER : "+ username+"has connect to the server");
+        serverModel.addMessage("SERVER : "+ username+ " has connect to the server");
 
-        broadCastMessage("SERVER : "+ username+"has connect to the server");
+        broadCastMessage("SERVER : "+ username+ " has connect to the server");
         broadCastUsers(serverModel.getOnlineUsers());
     }
 
     private void broadCastUsers(ArrayList<String> onlineUsers) throws IOException {
-        for (ClientHandler clientHandler : clientHandlers) {
-            clientHandler.sendUsers(onlineUsers);
+        for (Conversation conversation : conversations) {
+            conversation.sendUsers(onlineUsers);
         }
     }
 
@@ -42,8 +42,8 @@ public class ClientHandler implements Runnable{
     }
 
     private void broadCastMessage(String message) throws IOException {
-        for (ClientHandler clientHandler : clientHandlers) {
-            clientHandler.sendMessage(message);
+        for (Conversation conversation : conversations) {
+            conversation.sendMessage(message);
         }
 
     }
@@ -85,9 +85,9 @@ public class ClientHandler implements Runnable{
             if (objectOutputStream != null){
                 objectOutputStream.close();
             }
-            clientHandlers.remove(this);
+            conversations.remove(this);
             serverModel.removeUser(username);
-            broadCastMessage("SERVER"+username+" has disconnect from the server");
+            broadCastMessage("SERVER"+username+ " has disconnect from the server");
             broadCastUsers(serverModel.getOnlineUsers());
         } catch (IOException e) {
             e.printStackTrace();
