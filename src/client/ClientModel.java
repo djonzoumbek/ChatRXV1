@@ -26,24 +26,34 @@ public class ClientModel {
     }
 
     public void sendMessage(String message) throws IOException {
-        objectOutputStream.writeObject(username + ": " + message);
-
+        if (objectOutputStream != null) {
+            objectOutputStream.writeObject(username + ": " + message);
+            objectOutputStream.flush(); // Assure l'envoi immédiat du message
+        } else {
+            throw new IOException("ObjectOutputStream is not initialized.");
+        }
     }
 
     public void readMessage() throws IOException, ClassNotFoundException {
-        Object obj = (Object) objectInputStream.readObject();
-
-        if (obj instanceof String){
-            String message = (String) obj;
-            messages.add(message+"\n");
-            clientView.updateMessage();
-        }else {
-            ArrayList<String> onlineUsers = (ArrayList<String>) obj;
-            this.onlineUsers = onlineUsers;
-            clientView.updateUserList();
+        if (objectInputStream != null) {
+            Object obj = objectInputStream.readObject();
+            if (obj instanceof String) {
+                String message = (String) obj;
+                messages.add(message + "\n");
+                clientView.updateMessage();
+            } else if (obj instanceof ArrayList) {
+                @SuppressWarnings("unchecked")
+                ArrayList<String> onlineUsers = (ArrayList<String>) obj;
+                this.onlineUsers = onlineUsers;
+                clientView.updateUserList();
+            } else {
+                throw new IOException("Received object is neither String nor ArrayList.");
+            }
+        } else {
+            throw new IOException("ObjectInputStream is not initialized.");
         }
-
     }
+
 
     public void listenForMessage(){
         new Thread(new Runnable() {

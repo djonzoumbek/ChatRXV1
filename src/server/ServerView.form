@@ -58,24 +58,6 @@
           <text value="Online User"/>
         </properties>
       </component>
-      <component id="b844e" class="javax.swing.JButton" binding="saveChatButton" default-binding="true">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font size="16" style="1"/>
-          <text value="Save Chat"/>
-        </properties>
-      </component>
-      <component id="65eec" class="javax.swing.JButton" binding="loadChatButton" default-binding="true">
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font size="16" style="1"/>
-          <text value="Load Chat"/>
-        </properties>
-      </component>
       <component id="3875f" class="javax.swing.JButton" binding="startServerButton" default-binding="true">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>

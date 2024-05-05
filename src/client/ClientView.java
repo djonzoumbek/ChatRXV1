@@ -52,7 +52,7 @@ public class ClientView {
     }
 
     public String getMessage() {
-        return messageField.toString();
+        return messageField.getText();
     }
 
     public JMenuBar getMenuBar() {
@@ -84,7 +84,9 @@ public class ClientView {
     }
 
     public void updateMessage() {
-        chatarea.append(clientModel.getLatestMessage());
+        chatarea.append(clientModel.getLatestMessage()+ "\n");
+        //chatarea.append("Hello tout le monde\n");
+        System.out.println(messageField.getText());
     }
 
     public void updateUserList() {

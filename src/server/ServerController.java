@@ -16,19 +16,19 @@ public class ServerController extends JFrame {
 
         this.serverModel.addObserver(serverView);
 
-        serverView.getSaveChatButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Save chat log ...TODO");
-            }
-        });
-
-        serverView.getLoadChatButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Load chat log ...TODO");
-            }
-        });
+//        serverView.getSaveChatButton().addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.out.println("Save chat log ...TODO");
+//            }
+//        });
+//
+//        serverView.getLoadChatButton().addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.out.println("Load chat log ...TODO");
+//            }
+//        });
 
         serverView.getStartServerButton().addActionListener(new ActionListener() {
             @Override
